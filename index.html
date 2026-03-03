@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Firdha.F.A & Dendi.R</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#faf7f2;color:#333;overflow-x:hidden}
+h1,h2,h3{font-family:'Great Vibes',cursive}
+
+/* OPENING */
+.opening{
+position:fixed;inset:0;background:#000;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+color:#fff;z-index:999;
+text-align:center;padding:20px
+}
+.opening h1{font-size:40px;margin-bottom:20px}
+.btn{
+background:#c8a96a;color:#fff;
+padding:12px 30px;border:none;
+border-radius:30px;cursor:pointer;
+transition:.3s
+}
+.btn:hover{background:#b8914e}
+
+/* HERO */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200') center/cover;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+color:#fff;text-align:center
+}
+.hero h1{font-size:50px}
+.hero p{margin-top:10px;font-size:18px}
+
+/* FLOATING FLOWERS */
+.flower{
+position:fixed;
+top:-50px;
+width:25px;height:25px;
+background:url('https://pngimg.com/uploads/rose_petals/rose_petals_PNG23.png') center/contain no-repeat;
+animation:fall linear infinite;
+pointer-events:none
+}
+@keyframes fall{
+0%{transform:translateY(-10px) rotate(0deg)}
+100%{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* SECTION */
+section{padding:80px 20px;text-align:center;max-width:1000px;margin:auto}
+
+/* COUPLE PHOTO */
+.couple img{
+width:280px;max-width:90%;
+border-radius:20px;
+box-shadow:0 0 30px rgba(200,169,106,.7);
+animation:float 4s ease-in-out infinite
+}
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* COUNTDOWN */
+.countdown{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px}
+.countdown div{
+background:#c8a96a;color:#fff;
+padding:15px;border-radius:10px;
+min-width:70px;font-weight:bold
+}
+
+/* STORY */
+.story-box{
+background:#fff;
+padding:20px;margin:20px 0;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.05);
+opacity:0;transform:translateY(40px);
+transition:.8s
+}
+.story-box.show{opacity:1;transform:translateY(0)}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;margin-top:30px
+}
+.gallery img{
+width:100%;border-radius:15px;
+transition:.3s;cursor:pointer
+}
+.gallery img:hover{transform:scale(1.05)}
+
+/* RSVP */
+form{max-width:400px;margin:30px auto}
+input,textarea{
+width:100%;padding:10px;
+margin:10px 0;border-radius:8px;
+border:1px solid #ccc
+}
+button.submit{
+background:#c8a96a;color:#fff;
+padding:10px;border:none;
+border-radius:8px;width:100%;
+cursor:pointer
+}
+
+/* MAP */
+iframe{width:100%;height:300px;border-radius:15px;margin-top:20px}
+
+/* FOOTER */
+footer{background:#111;color:#fff;padding:30px;text-align:center;margin-top:50px}
+
+@media(max-width:768px){
+.hero h1{font-size:32px}
+.opening h1{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<div class="opening" id="opening">
+<h1>Firdha.F.A & Dendi.R</h1>
+<p>22 Desember 2024</p>
+<button class="btn" onclick="startWedding()">Buka Undangan</button>
+</div>
+
+<!-- HERO -->
+<div id="mainContent" style="display:none">
+
+<div class="hero">
+<h1>Firdha.F.A & Dendi.R</h1>
+<p>22 Desember 2023</p>
+</div>
+
+<section class="couple">
+<h2>Pasangan Berbahagia</h2>
+<img src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=800">
+</section>
+
+<section>
+<h2>Countdown Menuju Hari Bahagia</h2>
+<div class="countdown">
+<div><span id="days">0</span><br>Hari</div>
+<div><span id="hours">0</span><br>Jam</div>
+<div><span id="minutes">0</span><br>Menit</div>
+<div><span id="seconds">0</span><br>Detik</div>
+</div>
+</section>
+
+<section>
+<h2>Love Story</h2>
+<div class="story-box">💌 2018 - Pertama kali bertemu.</div>
+<div class="story-box">💍 2023 - Lamaran penuh haru.</div>
+<div class="story-box">💖 2023 - Menuju pernikahan suci.</div>
+</section>
+
+<section>
+<h2>Galeri Kenangan</h2>
+<div class="gallery">
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+</div>
+</section>
+
+<section>
+<h2>Lokasi Acara</h2>
+<p>Jl. Raya Pembangunan No.542, Mekarjaya, Cihampelas, Bandung Barat</p>
+<iframe src="https://www.google.com/maps?q=Jl.+Cidemang+Mekarsari+Rt.+03/08+Desa+Mekarsari+Kec.+Cipongkor+Kab.+Bandung+Barat&output=embed"></iframe>
+</section>
+
+<section>
+<h2>RSVP</h2>
+<form onsubmit="return sendRSVP(event)">
+<input type="text" placeholder="Nama Anda" required>
+<textarea placeholder="Ucapan & Doa"></textarea>
+<button class="submit">Kirim</button>
+</form>
+</section>
+
+<footer>
+© 2026 Wedding Firdha.F.A & Dendi.R
+</footer>
+
+</div>
+
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+function startWedding(){
+document.getElementById("opening").style.display="none";
+document.getElementById("mainContent").style.display="block";
+document.getElementById("music").play();
+createFlowers();
+}
+
+function createFlowers(){
+for(let i=0;i<20;i++){
+let flower=document.createElement("div");
+flower.classList.add("flower");
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(flower);
+}
+}
+
+const target=new Date("Desember 22, 2023 00:00:00").getTime();
+setInterval(()=>{
+const now=new Date().getTime();
+const diff=target-now;
+document.getElementById("days").innerHTML=Math.floor(diff/(1000*60*60*24));
+document.getElementById("hours").innerHTML=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+document.getElementById("minutes").innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
+document.getElementById("seconds").innerHTML=Math.floor((diff%(1000*60))/1000);
+},1000);
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll(".story-box").forEach(el=>{
+observer.observe(el);
+});
+
+function sendRSVP(e){
+e.preventDefault();
+alert("Terima kasih atas doa dan kehadirannya ❤️");
+}
+</script>
+
+</body>
+</html>
